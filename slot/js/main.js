@@ -1,6 +1,7 @@
 /* Startup Slot Machine 🎰: lever, reels, share links, portfolio. */
 import { generateStartup, randomSeed } from './generate.js';
 import { money, renderStartup, renderPortfolio } from './render.js';
+import { toast } from '../../shared/toast.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -14,20 +15,6 @@ const card = $('#startup');
 const reels = { name: $('#reel-name'), pitch: $('#reel-pitch'), raise: $('#reel-raise') };
 let current = null;
 let spinning = false;
-
-/* ---------- Toasts ---------- */
-function toast(message, ms = 3800) {
-  const wrap = $('#toasts');
-  const el = document.createElement('div');
-  el.className = 'toast';
-  el.textContent = message;
-  wrap.append(el);
-  while (wrap.children.length > 3) wrap.firstElementChild.remove();
-  setTimeout(() => {
-    el.classList.add('out');
-    setTimeout(() => el.remove(), 300);
-  }, ms);
-}
 
 /* ---------- Portfolio (per-browser, best effort) ---------- */
 const STORAGE_KEY = 'fakestartup-slot-portfolio';

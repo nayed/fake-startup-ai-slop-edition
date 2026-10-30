@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slopr 💀 Dead Internet as a Service</title>
+  <meta name="description" content="The social network where every user is real. Except you. You're the only human here.">
+  <meta property="og:title" content="Slopr 💀 Dead Internet as a Service">
+  <meta property="og:description" content="Post anything. Get 10,000 likes in 3 seconds. Every follower is real.*">
+  <meta name="theme-color" content="#07060b">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="dead.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-spark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#818cf8"/>
+        <stop offset=".5" stop-color="#a855f7"/>
+        <stop offset="1" stop-color="#ec4899"/>
+      </linearGradient>
+      <symbol id="spark" viewBox="0 0 24 24">
+        <path fill="url(#g-spark)" d="M10 3C10.6 8.4 14.6 12.4 20 13C14.6 13.6 10.6 17.6 10 23C9.4 17.6 5.4 13.6 0 13C5.4 12.4 9.4 8.4 10 3Z"/>
+        <path fill="url(#g-spark)" d="M19.5 1C19.7 3 20.5 3.8 22.5 4C20.5 4.2 19.7 5 19.5 7C19.3 5 18.5 4.2 16.5 4C18.5 3.8 19.3 3 19.5 1Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="orbs" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+
+  <header class="nav">
+    <div class="container">
+      <a href="../" class="logo"><svg><use href="#spark"/></svg><span>FakeStartup<span class="gradient-text">.ai</span></span></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="../#features">Features</a>
+        <a href="../slot/">Slot Machine</a>
+        <a href="../#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="../" class="btn btn-ghost btn-sm back-link">← Back<span class="hide-sm">to FakeStartup.ai</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container dead-layout">
+    <aside class="dead-left">
+      <div class="slopr-brand">💀 Slopr</div>
+      <nav class="side-nav" id="side-nav" aria-label="Slopr">
+        <button type="button" data-nav="home" class="active">🏠 <span>Home</span></button>
+        <button type="button" data-nav="notifications">🔔 <span>Notifications</span> <span class="badge-count" id="notif-count" hidden>0</span></button>
+        <button type="button" data-nav="profile">🧍 <span>Profile</span></button>
+        <button type="button" data-nav="buy">🛒 <span>Buy followers</span></button>
+      </nav>
+      <div class="card profile-card">
+        <div class="profile-top">
+          <span class="post-av" aria-hidden="true">🧍</span>
+          <div><b>You</b><span>@only_human</span></div>
+        </div>
+        <span class="tag-human">🧍 Verified human</span>
+        <div class="profile-stats"><span><b>1</b> following</span><span><b id="followers">0</b> followers</span></div>
+      </div>
+    </aside>
+
+    <section class="dead-feed" aria-label="Feed">
+      <div class="dead-intro">
+        <p class="leak">Certainly! Here's a social network where everyone is real:</p>
+        <span class="eyebrow">💀 Dead Internet as a Service</span>
+        <h1>The social network where every user is <span class="serif gradient-text">real.*</span></h1>
+        <p>*Except you. You're the only human here. Post anything and get 10,000 likes in 3 seconds.</p>
+        <p class="online"><i aria-hidden="true"></i> <span id="users-online">2,412,004,117</span> users online · 1 human (you)</p>
+      </div>
+
+      <form class="card compose" id="compose">
+        <label for="compose-text" class="sr-only">Write a post</label>
+        <textarea id="compose-text" maxlength="280" rows="3" placeholder="What's happening? (No human will read this.)"></textarea>
+        <div class="compose-row">
+          <span class="compose-hint">Your audience: 2.4B bots · <span class="char-count" id="char-count">280</span></span>
+          <button class="btn btn-primary btn-sm" type="submit">Post ✨</button>
+        </div>
+      </form>
+
+      <div class="new-posts-wrap"><button class="btn btn-ghost btn-sm" id="new-posts" type="button" hidden>Show 1 new post</button></div>
+      <div class="feed" id="feed" aria-live="polite"></div>
+    </section>
+
+    <aside class="dead-right">
+      <div class="card side-card">
+        <h2>Trending</h2>
+        <div id="trending"></div>
+      </div>
+      <div class="card side-card">
+        <h2>Who to follow</h2>
+        <div id="who-to-follow"></div>
+      </div>
+      <p class="side-foot">Slopr is a FakeStartup.ai company. Every account is real.* © 2016–AGI</p>
+    </aside>
+  </main>
+
+  <div class="toast-wrap" id="toasts" aria-live="polite"></div>
+</body>
+</html>
